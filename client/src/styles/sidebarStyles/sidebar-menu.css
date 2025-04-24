@@ -1,0 +1,27 @@
+.links {
+  display: grid;
+  /* border: 2px solid blue; */
+  margin-left: 5%;
+  margin-right: 5%;
+  gap: 10%;
+  /* overflow: hidden; */
+}
+.navLink.active {
+  /* background-color: #010522;  */
+  background: linear-gradient(40deg, #011117, #0a2b35, #26576c);
+  border-radius: 8px;
+  color: white;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease-in-out;
+  /* padding: 4%; */
+}
+.navLink {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  background: linear-gradient(40deg, #0a242f, #20414b, #3d7288);
+  /* padding: 4%; */
+  padding: 10px 15px;
+  border-radius: 10px;
+
+}

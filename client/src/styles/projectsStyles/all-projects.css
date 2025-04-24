@@ -1,0 +1,61 @@
+.allProjectsPageContainer {
+  display: grid;
+  grid-template-rows: 8.1% 90%;
+  /* border: 2px solid red; */
+  height: 100%;
+  width: 100%;
+}
+.topViewProjectsPageContainer {
+  /* border: 2px solid blue; */
+  width: 100%;
+  height: 58px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+  padding: 0% 3%;
+  display: grid;
+  grid-template-columns: 40% 35% 20%;
+  gap: 1%;
+}
+.navBarName {
+  /* border: 2px solid red; */
+  font-size: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.searchProject {
+  /* border: 2px solid red; */
+  width: 100%;
+  /* margin-left: 22%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.searchProject1 {
+  width: 80%;
+  /* border: 2px solid rgb(18, 62, 193); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.addProject {
+  /* border: 2px solid red; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.addButtonDiv1 {
+  /* border: none; */
+  /* border: 1px solid rgba(233, 226, 226, 0.888); */
+  width: 45%;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.429);
+  padding: 12px 30px;
+  background: #103848;
+  border-radius: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}

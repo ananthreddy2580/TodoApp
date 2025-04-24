@@ -1,0 +1,26 @@
+.fullView {
+  color: white;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background: linear-gradient(40deg, #08212c, #123a47, #3d7288);
+  user-select: none;
+}
+.rightView {
+  width: 80.3vw;
+}
+
+.leftView {
+  border-right: 1px solid rgba(255, 255, 255, 0.27);
+  width: 19.7vw;
+}
+
+.OutView {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(40deg, #011117, #0a2b35, #26576c);
+}

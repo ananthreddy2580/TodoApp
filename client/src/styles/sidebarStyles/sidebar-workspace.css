@@ -1,0 +1,180 @@
+.workSpaceContainer {
+  display: grid;
+  width: 100%;
+  min-width: 10%;
+}
+.workSpace {
+  /* width: 100%; */
+  display: flex;
+  gap: 5%;
+  padding: 7px 12px;
+  background: linear-gradient(40deg, #0a242f, #20414b, #3d7288);
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  /* padding: 4%; */
+}
+.selectedWorkspace {
+  width: 90%;
+  /* max-width: 100%; */
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  padding: 3px;
+  /* border: 2px solid blue; */
+}
+
+.userMail {
+  letter-spacing: 1px;
+  padding: 10px 20px;
+}
+.firstLetterLogo {
+  width: 10%;
+  padding: 3px;
+  display: flex;
+  border-radius: 5px;
+  font-weight: bolder;
+  font-size: medium;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  background-color: #061c24;
+  color: white;
+}
+.workSpaceName {
+  text-align: start;
+  align-items: center;
+  width: 90%;
+}
+.workSpaceMenuDiv {
+  font-size: medium;
+  background: none;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.workSpaceMenu {
+  background: #092f3b;
+  width: 25%;
+  border-radius: 8px;
+  position: absolute;
+  top: 7%;
+  left: 1%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  max-height: 60%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+/* Scrollbar Track (background) */
+.workSpaceMenu::-webkit-scrollbar {
+  width: 5px;
+}
+/* Scrollbar Thumb (draggable part) */
+.workSpaceMenu::-webkit-scrollbar-thumb {
+  background-color: #144348;
+  border-radius: 8px;
+}
+/* Scrollbar Track (empty space) */
+.workSpaceMenu::-webkit-scrollbar-track {
+  background: #06232e;
+  border-radius: 10px;
+}
+.workSpaceList {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.workSpaceUl {
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-top: 10px;
+  margin: 10px, 0, 0, 0;
+  padding: 0;
+}
+.workSpaceElement {
+  display: grid;
+  width: 95%;
+  gap: 15px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+.workSpaceElement:hover {
+  background-color: #20414b;
+}
+.workSpaceAllDetails {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.workspaceDetails {
+  width: 100%;
+  display: grid;
+  gap: 5px;
+}
+.workspace {
+  width: 100%;
+  display: flex;
+  gap: 15px;
+}
+.workspaceUserTypeAndMembers {
+  width: 90%;
+  display: flex;
+  gap: 10%;
+}
+.worspaceActive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+}
+.workSpaceActiveFeatures {
+  display: flex;
+  gap: 5%;
+}
+.workSpaceSettings {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 5px 20px;
+  background: #06232e;
+}
+.workSpaceInviteMembers {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 5px 20px;
+  background: #06232e;
+}
+.createAndLogOut {
+  padding: 10px 20px;
+  display: grid;
+}
+.createWorkSpaceButton:hover {
+  background-color: #20414b;
+  border-radius: 8px;
+}
+.createWorkSpaceButton {
+  width: 90%;
+  text-align: left;
+  border: none;
+  padding: 15px 10px;
+  background: none;
+  color: white;
+  cursor: pointer;
+}
+.signOutButton {
+  width: 90%;
+  text-align: left;
+  border: none;
+  padding: 15px 10px;
+  background: none;
+  color: white;
+  cursor: pointer;
+}
+.signOutButton:hover {
+  background-color: #20414b;
+  border-radius: 8px;
+}

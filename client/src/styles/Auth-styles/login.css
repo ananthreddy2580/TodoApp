@@ -1,0 +1,17 @@
+.ConnectLinks {
+  color: blue;
+}
+
+.bottomLinks {
+  display: flex;
+  font-size: 13px;
+  font-weight: bold;
+  justify-content: space-between;
+}
+.forgotPassword {
+  color: blue;
+}
+.ConnectLinks,
+.forgotPassword {
+  cursor: pointer;
+}

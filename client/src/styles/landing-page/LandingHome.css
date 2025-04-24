@@ -1,0 +1,97 @@
+/* Global Styles */
+@import url("./LandingFeature.css");
+@import url("./LandingNavbar.css");
+@import url("./LearnMore.css");
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #06232e;
+  border-radius: 10px;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+  user-select: none;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+  color: white;
+  line-height: 1.8;
+  max-width: 800px;
+  margin-bottom: 24px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.cta-btn {
+  font-size: 15px;
+  background: #103848;
+  font-weight: 500;
+  padding: 12px 30px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.cta-btn.secondary {
+  background: #103848;
+  color: #e2e8f0;
+  /* border: 1px solid #475569; */
+}
+
+.cta-btn:hover {
+  background: #082e3d;
+  opacity: 0.9;
+}
+
+.features {
+  margin-top: 5%;
+}
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Make sure it stays above other elements */
+  background-color: white; /* Set a background so it doesn’t go transparent on scroll */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 20px;
+    min-height: calc(100vh - 60px);
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+}
