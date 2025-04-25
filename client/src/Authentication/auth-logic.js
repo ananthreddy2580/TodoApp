@@ -46,7 +46,10 @@ export const CreateUser = async (formData, token) => {
           },
         }
       );
-      return "Success";
+      return {
+        status: CreateUSerResponse.data.status,
+        message: CreateUSerResponse.data.message,
+      };
     }
   } catch (error) {
     return error;
