@@ -33,17 +33,11 @@ function Signup() {
     try {
       const token = Cookies.get("csrftoken");
       if (token) {
-        const status = await CreateUser(formData, token);
-        if (status == "Success") {
-          toast.success("User Created");
-          navigate("/sign-in");
-        } else if (status == "EmptyFields") {
-          toast.error("All fields are required");
-        } else if (status == "PasswordNotMatched") {
-          toast.error("Password does not matched");
+        const response = await CreateUser(formData, token);
+        if (response.status === "success") {
+          toast.success(response.message);
         } else {
-          toast.error("User not created");
-          console.log("not created");
+          toast.error(response.message);
         }
       } else {
         toast.error("Token not found");
