@@ -33,17 +33,19 @@ function Signup() {
     try {
       const token = Cookies.get("csrftoken");
       if (token) {
-        const response = await CreateUser(formData, token);
-        if (response.status === "success") {
-          toast.success(response.message);
+        const createResponse = await CreateUser(formData, token);
+        if (createResponse.status === "success") {
+          toast.success(createResponse.message);
+          // navigate("/sign-in"); // Uncomment if you want to navigate to sign-in page
         } else {
-          toast.error(response.message);
+          toast.error(createResponse.message); // Show error if the status is "failed"
+          // navigate("/sign-in"); // Redirect to sign-in after failure
         }
       } else {
         toast.error("Token not found");
       }
     } catch (error) {
-      toast.error("something went wrong");
+      toast.error("Something went wrong");
     }
   };
 
