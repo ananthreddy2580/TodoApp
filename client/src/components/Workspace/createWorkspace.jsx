@@ -34,7 +34,7 @@ function CreateWorkspace() {
     const workSpaceCount = await CheckWorkSpaceCount(userId, token);
     console.log(workSpaceCount);
     if (workSpaceCount.count == 0) {
-      navigate("/create-workspace-alert");
+      navigate(`/create-workspace-alert/${userId}`);
     } else {
       navigate(`/home/${userId}`);
     }

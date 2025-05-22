@@ -2,12 +2,20 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LandingNavbar from "../Landingpage/LandingNavbar.jsx";
 import { CreateUser, getCsrfToken } from "./auth-logic.js";
+import { useAuthStore } from "./auth-store.jsx";
 import Cookies from "js-cookie";
 import toast from "react-hot-toast";
 // import { showToastExternal } from "../components/Toast.jsx";
 
 function Signup() {
   const navigate = useNavigate();
+  const token = Cookies.get("csrftoken");
+  if (!token) {
+    const csrfToken = getCsrfToken();
+  }
+
+  const setIsLoggedIn = useAuthStore((state) => state.setIsLoggedIn);
+  setIsLoggedIn(false);
 
   const [formData, setFormData] = useState({
     fullname: "",
@@ -31,7 +39,6 @@ function Signup() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const token = Cookies.get("csrftoken");
       if (token) {
         const createResponse = await CreateUser(formData, token);
         if (createResponse.status === "success") {

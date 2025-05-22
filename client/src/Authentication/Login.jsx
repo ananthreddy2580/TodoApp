@@ -10,6 +10,9 @@ import toast from "react-hot-toast";
 function Login() {
   const navigate = useNavigate();
   const token = Cookies.get("csrftoken");
+  if (!token) {
+    const csrfToken = getCsrfToken();
+  }
 
   const [formData, setFormData] = useState({
     email: "",
@@ -17,6 +20,8 @@ function Login() {
   });
 
   const setIsLoggedIn = useAuthStore((state) => state.setIsLoggedIn);
+  setIsLoggedIn(false);
+
   const setUserId = useUserIdStore((state) => state.setUserId);
   const handleChange = (e) => {
     const { name, value } = e.target;
