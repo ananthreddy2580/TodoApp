@@ -37,9 +37,10 @@ function UpdatePassword() {
           token,
           csrftoken
         );
+        console.log(UpdatePasssResult);
         if (UpdatePasssResult.status === "success") {
           toast.success(UpdatePasssResult.message);
-          navigate("/");
+          navigate("/sign-in");
         } else {
           toast.error(UpdatePasssResult.message);
         }
@@ -86,7 +87,7 @@ function UpdatePassword() {
               </div>
 
               <button className="signup1-btn" type="submit">
-                Sign In
+                Update
               </button>
             </form>
           </div>

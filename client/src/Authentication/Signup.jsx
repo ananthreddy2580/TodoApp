@@ -36,7 +36,7 @@ function Signup() {
         const createResponse = await CreateUser(formData, token);
         if (createResponse.status === "success") {
           toast.success(createResponse.message);
-          // navigate("/sign-in"); // Uncomment if you want to navigate to sign-in page
+          navigate("/sign-in"); // Uncomment if you want to navigate to sign-in page
         } else {
           toast.error(createResponse.message); // Show error if the status is "failed"
           // navigate("/sign-in"); // Redirect to sign-in after failure

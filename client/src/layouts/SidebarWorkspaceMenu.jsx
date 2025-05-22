@@ -1,8 +1,38 @@
+import { useAuthStore, useUserIdStore } from "../Authentication/auth-store";
+import { useNavigate, useParams } from "react-router-dom";
+import { GetMail } from "../Authentication/check-workspace-count";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+
 function SidebarWorkspaceMenu({ workSpaceRef, workspace }) {
+  const navigate = useNavigate();
+  const { userId } = useParams();
+  const token = Cookies.get("csrftoken");
+  const setIsLoggedIn = useAuthStore((state) => state.setIsLoggedIn);
+  const [mail, setMail] = useState("");
+  // const userId = useUserIdStore((state) => state.userId);
+  const addWorkSpaceBtn = () => {
+    navigate(`/create-workspace/${userId}`);
+  };
+
+  const logout = () => {
+    setIsLoggedIn(false);
+    navigate("/");
+  };
+
+  const BringMail = async () => {
+    const response = await GetMail(userId, token);
+    setMail(response.mail);
+  };
+
+  useEffect(() => {
+    BringMail();
+  }, []);
+
   return (
     <>
       <div ref={workSpaceRef} className="workSpaceMenu">
-        <div className="userMail">mandliananth@gmail.com</div>
+        <div className="userMail">{mail}</div>
         <div className="workSpaceList">
           <ul className="workSpaceUl">
             {workspace.map((wkspace, index) => {
@@ -48,8 +78,12 @@ function SidebarWorkspaceMenu({ workSpaceRef, workspace }) {
           </ul>
         </div>
         <div className="createAndLogOut">
-          <div className="createWorkSpaceButton">Create WorkSpace</div>
-          <div className="signOutButton">Sign Out</div>
+          <div className="createWorkSpaceButton" onClick={addWorkSpaceBtn}>
+            Create WorkSpace
+          </div>
+          <div className="signOutButton" onClick={logout}>
+            Sign Out
+          </div>
         </div>
       </div>
     </>

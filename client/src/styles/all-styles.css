@@ -3,3 +3,5 @@
 @import url("./landing-page/LandingHome.css");
 @import url("./Auth-styles/login.css");
 @import url("./Auth-styles/sign-up.css");
+@import url("./workSpace/createWorkspace.css");
+@import url("./Workspace/createWorkspaceAlert.css");

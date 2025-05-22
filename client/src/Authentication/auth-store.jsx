@@ -9,3 +9,10 @@ export const useAuthStore = create((set) => ({
     set({ isLoggedIn: value });
   },
 }));
+
+export const useUserIdStore = create((set) => ({
+  userId: "",
+  setUserId: (value) => {
+    set({ userId: value });
+  },
+}));

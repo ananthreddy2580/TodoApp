@@ -1,20 +1,19 @@
-import { NavLink } from "react-router-dom";
-function SidebarMenu() {
+import { NavLink, useParams } from "react-router-dom";
+
+function SidebarMenu({ userId }) {
   return (
-    <>
-      <div className="links">
-        <NavLink to="/" className="navLink">
-          Home
-        </NavLink>
-        <NavLink to="Projects" className="navLink">
-          Projects
-        </NavLink>
-        <NavLink to="profile" className="navLink">
-          Profile
-        </NavLink>
-        {/* <Link to="projects/">Projects</Link> */}
-      </div>
-    </>
+    <div className="links">
+      <NavLink to={`/home/${userId}`} className="navLink">
+        Home
+      </NavLink>
+      <NavLink to={`/projects/${userId}`} className="navLink">
+        Projects
+      </NavLink>
+      <NavLink to={`/profile/${userId}`} className="navLink">
+        Profile
+      </NavLink>
+    </div>
   );
 }
+
 export default SidebarMenu;

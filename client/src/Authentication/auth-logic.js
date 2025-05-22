@@ -25,16 +25,6 @@ export const getCsrfToken = async () => {
 // SignUp
 export const CreateUser = async (formData, token) => {
   try {
-    if (
-      formData.fullname === "" ||
-      formData.email === "" ||
-      formData.password === "" ||
-      formData.confirmPassword === ""
-    ) {
-      return "EmptyFields";
-    } else if (formData.password !== formData.confirmPassword) {
-      return "PasswordNotMatched";
-    } else {
       const CreateUserResponse = await axios.post(
         `${API_URL}/auth/sign-up/`,
         formData,
@@ -51,7 +41,6 @@ export const CreateUser = async (formData, token) => {
         status: CreateUserResponse.data.status,
         message: CreateUserResponse.data.message,
       };
-    }
   } catch (error) {
     return error;
   }
@@ -68,8 +57,8 @@ export const LoginUser = async (formData, token) => {
         "Content-Type": "application/json",
       },
     });
-    console.log("Response:", response.data.message);
     return {
+      userId:response.data.userId,
       status: response.data.status,
       message: response.data.message,
     };
@@ -126,3 +115,5 @@ export const UpdatePass = async (formData, uidb64, token, csrftoken) => {
     return error;
   }
 };
+
+

@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LandingNavbar from "../Landingpage/LandingNavbar.jsx";
-import { useAuthStore } from "./auth-store.jsx";
+import { useAuthStore, useUserIdStore } from "./auth-store.jsx";
 import { LoginUser, getCsrfToken } from "./auth-logic.js";
+import { CheckWorkSpaceCount } from "./check-workspace-count.js";
 import Cookies from "js-cookie";
 import toast from "react-hot-toast";
 
-// const token = Cookies.get("csrftoken");
-// console.log(token);
-
 function Login() {
   const navigate = useNavigate();
+  const token = Cookies.get("csrftoken");
 
   const [formData, setFormData] = useState({
     email: "",
@@ -18,7 +17,7 @@ function Login() {
   });
 
   const setIsLoggedIn = useAuthStore((state) => state.setIsLoggedIn);
-
+  const setUserId = useUserIdStore((state) => state.setUserId);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -27,10 +26,6 @@ function Login() {
     }));
   };
 
-  // const NavToLearnMore = () => {
-  //   navigate("/");
-  // };
-
   const NavToSignup = () => {
     navigate("/sign-up");
   };
@@ -38,20 +33,25 @@ function Login() {
     navigate("/forgot-password");
   };
 
-  useEffect(() => {
-    getCsrfToken();
-  }, []);
-
   const NavToHome = async (e) => {
     e.preventDefault();
     try {
-      const token = Cookies.get("csrftoken");
       if (token) {
         const loginResult = await LoginUser(formData, token);
         if (loginResult.status === "success") {
+          console.log(loginResult.userId);
           toast.success(loginResult.message);
-          setIsLoggedIn(true);
-          navigate("/");
+          setUserId(loginResult.userId);
+          const CountOfWorkspaces = await CheckWorkSpaceCount(
+            loginResult.userId,
+            token
+          );
+          if (CountOfWorkspaces.count == 0) {
+            navigate(`/create-workspace/${loginResult.userId}`);
+          } else {
+            setIsLoggedIn(true);
+            navigate(`/home/${loginResult.userId}`);
+          }
         } else {
           toast.error(loginResult.message);
         }
@@ -59,7 +59,8 @@ function Login() {
         toast.error("Token not found");
       }
     } catch (error) {
-      toast.error("something went wrong");
+      console.log(error);
+      toast.error("something went wrong11");
     }
   };
 

@@ -1,6 +1,10 @@
 import SidebarMenu from "./SidebarMenu";
 import SidebarWorkspace from "./SidebarWorkspace";
+import { useParams } from "react-router-dom";
+
 function Sidebar() {
+  const { userId } = useParams();
+
   return (
     <>
       <div className="sideNavPageContainer">
@@ -8,7 +12,7 @@ function Sidebar() {
           <SidebarWorkspace />
         </div>
         <div className="sideNavBottomContainer">
-          <SidebarMenu />
+          <SidebarMenu userId={userId} />
         </div>
       </div>
     </>
