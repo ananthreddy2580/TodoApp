@@ -49,7 +49,7 @@ function CreateWorkspace() {
         if (createWorkSpaceResponse.status === "success") {
           toast.success(createWorkSpaceResponse.message);
           setIsLoggedIn(true);
-          navigate("/");
+          navigate(`/home/${userId}`);
         } else {
           toast.error(createWorkSpaceResponse.message);
         }
